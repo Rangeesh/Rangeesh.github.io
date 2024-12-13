@@ -1,0 +1,1 @@
+1. I don't like the fact that I'm fat and bald. It is an indication of my laziness, and I am going to destroy it. Run in the evenings daily. Start with 1 mile. 
