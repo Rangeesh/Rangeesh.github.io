@@ -1,0 +1,29 @@
+{%- assign card_post = include.post -%}
+{%- assign card_category = card_post.category | default: 'Personal' -%}
+{%- assign card_words = card_post.content | markdownify | strip_html | number_of_words -%}
+{%- assign card_reading_time = card_words | divided_by: 220.0 | ceil | at_least: 1 -%}
+{%- capture card_search -%}{{ card_post.title }} {{ card_post.subtitle }} {{ card_post.content | markdownify | strip_html }}{%- endcapture -%}
+<article class="post-card{% if include.compact %} post-card-compact{% endif %}" data-category="{{ card_category | escape }}" data-search="{{ card_search | normalize_whitespace | downcase | escape }}">
+  <div class="post-meta">
+    <time datetime="{{ card_post.date | date_to_xmlschema }}">{{ card_post.date | date: '%B %-d, %Y' }}</time>
+    <span>{{ card_reading_time }} min read</span>
+    <span>{{ card_category | escape }}</span>
+  </div>
+  {% if include.compact %}
+  <h3 class="post-title"><a href="{{ card_post.url | relative_url }}">{{ card_post.title | escape }}</a></h3>
+  {% else %}
+  <h2 class="post-title"><a href="{{ card_post.url | relative_url }}">{{ card_post.title | escape }}</a></h2>
+  {% endif %}
+  {% if card_post.subtitle %}<p class="post-subtitle">{{ card_post.subtitle | escape }}</p>{% endif %}
+  <p class="post-excerpt">{{ card_post.excerpt | strip_html | normalize_whitespace | truncatewords: 35 | escape }}</p>
+  {% unless include.compact %}
+  {% if card_post.tags.size > 0 %}
+  <ul class="tag-list" aria-label="Article tags">
+    {% for tag in card_post.tags %}
+    <li><a class="tag" href="{{ '/tags' | relative_url }}#{{ tag | uri_escape | escape }}">{{ tag | escape }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endunless %}
+  <a class="post-link text-link" href="{{ card_post.url | relative_url }}">Read article<span class="visually-hidden">: {{ card_post.title | escape }}</span> <span aria-hidden="true">&rarr;</span></a>
+</article>

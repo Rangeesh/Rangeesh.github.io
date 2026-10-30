@@ -1,33 +1,58 @@
 ---
-layout: page
+layout: base
 title: About me
-subtitle: A brief insight into my world
+permalink: /aboutme
+description: A little about Rangeesh Venkatesan, from mechanical engineering and vehicle controls to robotics foundation models.
 ---
 
-My name is Rangeesh Venkatesan. Here's what I like to do the most
+<header class="page-header container">
+  <p class="section-label">About</p>
+  <h1>Hi, I’m Rangeesh.</h1>
+  <p class="lead">An engineer working on robotics foundation models, with roots in mechanical engineering and autonomous driving.</p>
+</header>
 
-- Do something awesome that inspires you to wake up daily and get to work.
-- Play sports, hit the gym, eat well, sleep well.
-- Read interesting stuff and have cool discussions about them. Currently, I hardly find people interested to have these discussions so writing about them would suffice. 
+<section class="section container" aria-labelledby="story-heading">
+  <div class="about-grid">
+    <img class="about-portrait" src="{{ '/assets/img/rangeesh.jpeg' | relative_url }}" alt="Portrait of Rangeesh Venkatesan" width="224" height="224">
+    <div class="prose">
+      <h2 id="story-heading">A little about me</h2>
+      <p>I’m Rangeesh Venkatesan. I’m a Member of Technical Staff at Amazon Frontier AI &amp; Robotics in San Francisco, where I lead distributed training infrastructure for foundation-model pretraining and co-build a multi-node reinforcement learning framework.</p>
+      <p>I studied mechanical engineering at IIT Madras and robotics at Texas A&amp;M before moving to the Bay Area. Formula Student was an early chance to build something that had to work outside the classroom. Vehicle controls and motion planning led me into software and machine learning; at Tesla, I was one of four core contributors to Actually Smart Summon.</p>
+      <p>Outside work, I enjoy table tennis, tennis, badminton, time at the gym, reading, and cooking biryani.</p>
+      <p><a class="text-link" href="{{ '/work/' | relative_url }}">Explore my work and experience</a></p>
+      <div class="contact-links">
+        <a class="text-link" href="mailto:{{ site.email | escape }}">Email me</a>
+        <a class="text-link" href="{{ site.linkedin | escape }}">LinkedIn</a>
+        <a class="text-link" href="{{ site.github_url | escape }}">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-### My story
+<section class="section container" aria-labelledby="education-heading">
+  <div class="section-header">
+    <h2 id="education-heading">Education</h2>
+  </div>
+  <div class="grid-two">
+    {% for education in site.data.career.education %}
+    <article class="card">
+      <p class="card-label">{{ education.period | escape }} · Graduated {{ education.graduation_year | escape }}</p>
+      <h3>{{ education.institution | escape }}</h3>
+      <p>{{ education.degree | escape }}</p>
+      <p class="meta">GPA {{ education.gpa | escape }}</p>
+      {% if education.details %}<p>{{ education.details | escape }}</p>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
 
-Here's a chronological order into my life so far
-- 1996 - Born in a union territory. My name is so unique that my dad wasn't saying the right name for the first 4 days. 
-- 1999 - Joined PSBB. Was a crazy fan of Thalaivar back then that whenever I was dropped early in school, I used to do the Padiyappa pose in front of the teachers in the school's office. Got reprimended for that. 
-- 2003 - Played Table tennis for the first time. This was after I was asked to not play Tennis and Cricket. My love affair with sports began here.
-- 2004 - First time I got Math proficiency. Little did I know that I would get it 10 years in a row. Why did I want it so bad?
-- 2011 - Joined FIITJEE. They were paying me 40K to join them. First time I earned money. 
-- 2012 - Avg score in math in class 10 was 100. Let that sink in. What an achievement. 
-- 2014 - Joined IIT Madras. I thought I flunked JEE Mains, especially in math (I scored 33% - what a downfall). Prepared rigorously between JEE Mains and JEE Advanced (2 months is all you need). That's what got me a seat at IITM.
-- 2015 - Joined Raftar. The craze for doing something crazy started here. So did my love affair with Ronaldo's achievements. 
-- 2017 - Went to Formula Student Italy. First international trip. 15th overall. I didn't know I would've ever been a part of a team that would do international trips for competitions.
-- 2018 - With a stroke of luck, decided to ditch my offer at Systemantics and joined TAMU for a master's in Mechanical Engineering. Got funding from my first semester thanks to Dr.Darbha. 
-- 2019 - Joined the 12th Unmanned team for the SAE Autodrive challenge. I thought it might be similar to Raftar, but it was not as competitive, but nevertheless exciting. Visited a different state for the first time. Decided to move into software, more than controls.
-- 2020 - Covid struck, lost a bunch of interviews (missed Nvidia by a whisker). However, persevered and ended up getting an offer with Motional. I didn't end up getting a return offer from them because I was going through some tough personal issues, but I think the lack of discipline might've also played a role. 
-- 2020 - Rejected a Tesla internship offer since it was in Vehicle controls and I only wanted to join Tesla Autopilot for controls. It went to a friend from TAMU and he ended up converting it to a full-time offer. Happy for him. 
-- 2021 - Rejected Ford AV since they were in Michigan, went to Didi since they were in the Bay area. Met good mentors. Moved with JK on the same day. 
-- 2022 - Started in-person dating. Bombed a few dates. Didn't have H1B, and wanted to get into Tesla Autopilot at least once so that I might have some good brand name. Final round happended on Dec 9. ChatGPT released on Nov 30. I went into the interview with just preparing the slides and no leetcode prep. I thought I bombed the interview and I was just convincing myself that I will apply again in October next year, no worries (I had already bombed two interviews at the supercharger question stage itself). That was a bold and careless move on my part, considering that without H1B I would've have gotten another chance at Tesla, and it might've been difficult to sustain the job then, even if they were to hire me again. Likelihood of hiring would've been near zero since they all moved to a ML based solution and I didn't do a PhD in ML. 
-- 2023 -  Tried getting into serious relationships, only to flunk them while working at Tesla. I think I like blaming my work for the failures, but really it's just that I was not ready for what was coming.  
-- 2024 -  After surviving layoffs, crossed the March 5 deadline to get my 1 year vest. Shipped Actually Smart Summon - which was one of the best things I've worked on, went through a breakup and some more. 
-- 2025 - What's life got in store? 
+<section class="section container" aria-labelledby="skills-heading">
+  <div class="section-header">
+    <h2 id="skills-heading">Tools I work with</h2>
+  </div>
+  <ul class="skill-list">
+    {% for skill in site.data.career.skills %}
+    <li>{{ skill | escape }}</li>
+    {% endfor %}
+  </ul>
+</section>

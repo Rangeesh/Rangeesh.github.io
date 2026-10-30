@@ -1,3 +1,13 @@
+## Personal website redesign — 2026-10-30
+
+- Replaced the generic theme with an editorial, responsive personal website.
+- Added dedicated Writing and Work pages, résumé-backed achievements, research, talks, education, and an updated About page.
+- Preserved existing article content and URLs; added progressive blog search/category filters, topic navigation, RSS, metadata, and sitemap support.
+- Removed unused theme machinery and third-party browser dependencies. Address and phone are not published.
+- Documented Markdown authoring and the existing GitHub Pages deployment workflow.
+
+## Original Beautiful Jekyll history
+
 ## Unreleased version
 - BREAKING CHANGE: Allow changing the order of the social network links that appear in the footer (#1152)
 - BREAKING CHANGE: `google-scholar` social network link no longer requires the prefix `citations?user=`; if you previously set this parameter, it needs to be updated (#1189)
